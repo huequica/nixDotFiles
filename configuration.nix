@@ -96,8 +96,12 @@
   # Install firefox.
   programs.firefox.enable = true;
 
-  # Install Git
-  programs.git.enable = true;
+  # Install Git and GitHub-CLI
+  programs.git = {
+    enable = true;
+    userName = "huequica";
+    userEmail = "dev@huequica.xyz";
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

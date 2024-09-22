@@ -1,6 +1,7 @@
+{ pkgs, ... }:
 {
-  programs = {
-    youtube-music.enable = true;
-    vlc.enable = true;
-  };
+  home.packages = with pkgs; [
+    vlc
+    youtube-music
+  ];
 }

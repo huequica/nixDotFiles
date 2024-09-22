@@ -1,13 +1,18 @@
-{ config, pkgs, username, ... }:
+{
+  config,
+  pkgs,
+  username,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
 
-      ../../modules/core
-      ../../modules/desktop
-    ];
+    ../../modules/core
+    ../../modules/desktop
+  ];
 
   # Bootloader.
   boot.loader.grub.enable = true;

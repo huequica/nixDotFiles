@@ -14,7 +14,7 @@
   outputs =
     inputs:
     let
-      allSystems = ["x86_64-linux"];
+      allSystems = [ "x86_64-linux" ];
       forAllSystems = inputs.nixpkgs.lib.genAttrs allSystems;
     in
     {
@@ -23,7 +23,7 @@
 
       devShells = forAllSystems (
         system:
-        let 
+        let
           pkgs = inputs.nixpkgs.legacyPackages.${system};
           formatters = with pkgs; [
             nixfmt-rfc-style
@@ -35,7 +35,7 @@
           ];
         in
         {
-          default = pkgs.mkShell { packages = ([pkgs.nh]) ++ formatters ++ scripts; };
+          default = pkgs.mkShell { packages = ([ pkgs.nh ]) ++ formatters ++ scripts; };
         }
       );
 

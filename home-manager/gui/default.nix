@@ -1,8 +1,8 @@
 {
   imports = [
-    ./browser.nix,
-    ./media.nix,
-    ./tools.nix,
+    ./browser.nix
+    ./media.nix
+    ./tools.nix
     ./vault.nix
   ];
 }

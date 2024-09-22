@@ -59,7 +59,7 @@ in
     "huequica@choco-nix" = makeHomeManagerConfiguration {
       system = "x86_64-linux";
       username = "huequica";
-      modules = [ ./choco-nix/home-manager.nix ]
+      modules = [ ./choco-nix/home-manager.nix ];
     };
   };
 }

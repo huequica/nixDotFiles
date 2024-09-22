@@ -1,8 +1,9 @@
 {
-  description = "A very basic flake";
+  description = "NixOS & home-manager configurations for huequica";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -11,26 +12,8 @@
   };
 
   outputs = inputs: {
-    nixosConfigurations = {
-      myNixOS = inputs.nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ ./configuration.nix ]; 
-      };
-    };
+    nixosConfigurations = (import ./hosts inputs).nixos;
 
-    homeConfigurations = {
-      myHome = inputs.home-manager.lib.homeManagerConfiguration {
-        pkgs = import inputs.nixpkgs {
-          system = "x86_64-linux";
-          config.allowUnfree = true;
-        };
-
-        extraSpecialArgs = {
-          inherit inputs;
-        };
-
-        modules = [ ./home.nix ];
-      };
-    };
+    homeConfigurations = (import ./hosts inputs).home-manager;
   };
 }

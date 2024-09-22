@@ -40,7 +40,6 @@ let
           stateVersion = "22.11";
         };
         programs.home-manager.enable = true;
-        programs.git.enbale = true;
       }
     ];
   };

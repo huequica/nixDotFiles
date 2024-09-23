@@ -11,6 +11,7 @@
     ./hardware-configuration.nix
 
     ../../modules/core
+    ../../modules/vm
     ../../modules/desktop
   ];
 

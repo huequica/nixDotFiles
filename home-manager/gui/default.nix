@@ -5,5 +5,6 @@
     ./tools.nix
     ./vault.nix
     ./nextcloud.nix
+    ./messaging
   ];
 }

@@ -18,18 +18,19 @@ let
     {
       system,
       username,
+      overlays,
       modules,
     }:
     inputs.home-manager.lib.homeManagerConfiguration {
       pkgs = import inputs.nixpkgs {
-        inherit system;
+        inherit system overlays;
         config.allowUnfree = true;
       };
 
       extraSpecialArgs = {
         inherit inputs username;
         pkgs-stable = import inputs.nixpkgs-stable {
-          inherit system;
+          inherit system overlays;
           config.allowUnfree = true;
         };
       };
@@ -60,6 +61,7 @@ in
     "huequica@choco-nix" = makeHomeManagerConfiguration {
       system = "x86_64-linux";
       username = "huequica";
+      overlays = [ inputs.fenix.overlays.default ];
       modules = [ ./choco-nix/home-manager.nix ];
     };
   };

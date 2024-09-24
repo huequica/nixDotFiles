@@ -33,6 +33,11 @@
     ];
   };
 
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "";
+  };
+
   # DONT TOUCH THIS
   system.stateVersion = "24.05";
 }

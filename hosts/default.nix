@@ -55,6 +55,13 @@ in
       username = "huequica";
       modules = [ ./choco-nix/nixos.nix ];
     };
+
+    justYuri = makeNixosSystem {
+      system = "x86_64-linux";
+      hostname = "justYuri";
+      username = "huequica";
+      modules = [ ./justYuri/nixos.nix ];
+    };
   };
 
   home-manager = {
@@ -63,6 +70,13 @@ in
       username = "huequica";
       overlays = [ inputs.fenix.overlays.default ];
       modules = [ ./choco-nix/home-manager.nix ];
+    };
+
+    "huequica@justYuri" = makeHomeManagerConfiguration {
+      system = "x86_64-linux";
+      username = "huequica";
+      overlays = [ inputs.fenix.overlays.default ];
+      modules = [ ./justYuri/home-manager.nix ];
     };
   };
 }

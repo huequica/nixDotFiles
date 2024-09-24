@@ -2,7 +2,7 @@
 let
   customVivaldi = pkgs.vivaldi.overrideAttrs (oldAttrs: {
     dontWrapQtApps = false;
-    dontPatchELF = false;
+    dontPatchELF = true;
     nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [ pkgs.kdePackages.wrapQtAppsHook ];
   });
 in

@@ -13,7 +13,6 @@ in
   };
 
   # plasma6 では現状 vivaldi が正しく起動しない問題がある
-  # 
   home.packages = [
     customVivaldi
   ];

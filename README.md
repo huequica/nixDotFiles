@@ -32,10 +32,10 @@ home 以下のやつでいろいろするやつ
 ## 2. 本格的な設定の同期
 
 1. この repo を下ろしてくる
+    - **ここからの 2 ~ 9 は新規環境追加のみ実施**
 2. `nix shell nixpkgs#vim` なりで vim を下ろしてくる
 3. `mkdir -p hosts/${hostname} && cd hosts/${hostname}`
 4. `cp /etc/nixos/* ./`
-    - **ここからの 5 ~ 9 は新規環境追加のみ実施**
 5. 適宜 configuration.nix からデスクトップ定義などの余分な記述を消したりする
 6. configuration.nix の `imports` に modules を追加
 7. `mv configuration.nix nixos.nix`

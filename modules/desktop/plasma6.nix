@@ -1,6 +1,9 @@
 {
   services.xserver.enable = true;
-  security.pam.services.kwallet.enableKwallet = true;
+  security.pam.services.kwallet = {
+    name = "kwallet";
+    enableKwallet = true;
+  };
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
@@ -9,5 +12,4 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
 }

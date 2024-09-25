@@ -5,5 +5,6 @@
     ./nix.nix
     ./vim.nix
     ./virtualisation.nix
+    ./security.nix
   ];
 }

@@ -4,5 +4,6 @@
     ./audio.nix
     ./fcitx5.nix
     ./fonts.nix
+    ./vault.nix
   ];
 }

@@ -11,6 +11,7 @@
 
     ../../modules/core
     ../../modules/desktop
+    ../../modules/bluetooth
   ];
 
   # Bootloader.

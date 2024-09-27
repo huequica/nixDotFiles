@@ -2,6 +2,8 @@
 
 わたしの環境ファイル
 
+![image](https://github.com/user-attachments/assets/e66df000-506d-420f-9515-a126e515898f)
+
 ## setup
 
 ### os

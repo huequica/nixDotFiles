@@ -2,6 +2,6 @@
 {
   programs.vim = {
     enable = true;
-    extraConfig = builtins.readFile ./vimrc
+    extraConfig = builtins.readFile ./.vimrc;
   };
 }

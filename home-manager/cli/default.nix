@@ -4,6 +4,7 @@
     ./ssh.nix
     ./nixfmt.nix
     ./shell
+    ./vim
     ./developEnvironments
   ];
 }

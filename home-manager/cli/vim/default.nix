@@ -1,5 +1,5 @@
 {
   imports = [
-    ./vimrc.nix
+    ./vim.nix
   ];
 }

@@ -2,9 +2,9 @@
   imports = [
     ./git.nix
     ./ssh.nix
-    ./vim.nix
     ./nixfmt.nix
     ./shell
+    ./vim
     ./developEnvironments
   ];
 }

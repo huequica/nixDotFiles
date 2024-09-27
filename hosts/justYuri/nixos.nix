@@ -27,6 +27,7 @@
       "wheel"
       "audio"
       "video"
+      "docker"
     ];
   };
 

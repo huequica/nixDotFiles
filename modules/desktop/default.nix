@@ -5,5 +5,6 @@
     ./fcitx5.nix
     ./fonts.nix
     ./vault.nix
+    ./vm-viewer.nix
   ];
 }

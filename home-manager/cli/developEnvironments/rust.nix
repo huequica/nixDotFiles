@@ -4,5 +4,8 @@
     (fenix.combine [
       fenix.stable.toolchain
     ])
+
+    # build required compiler
+    gcc
   ];
 }

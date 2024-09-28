@@ -18,6 +18,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # For bluetooth and wifi module enabling
+  boot.kernelModules = [ "btintel" ];
+
   services.xserver.xkb = {
     layout = "us";
     variant = "";

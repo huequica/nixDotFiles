@@ -30,7 +30,12 @@
   programs.gh = {
     enable = true;
     package = pkgs-stable.gh;
-    settings.editor = "vim";
-    settings.git_protocol = "ssh";
+    settings = {
+      editor = "vim";
+      git_protocol = "ssh";
+      aliases = {
+        co = "pr checkout";
+      };
+    };
   };
 }

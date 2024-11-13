@@ -1,8 +1,8 @@
 { pkgs, ... }:
 let
   sddmWallpaper = pkgs.fetchurl {
-    url = "https://supersonico.jp/download/wallpaper/63_vday2024_1920x1200.jpg";
-    sha256 = "sha256-vqzhfHOhZNyqN+1bObKEqp5GAwDsWWDG2E1xT8Tz1yg=";
+    url = "https://supersonico.jp/download/wallpaper/57_birthday2022_1920x1200.jpg";
+    sha256 = "sha256-6/EOoy1ekwK1014NWLacp654JpvaHsgxQZmwTn7sWLE=";
   };
 in
 {

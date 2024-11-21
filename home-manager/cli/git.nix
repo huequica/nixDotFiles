@@ -11,6 +11,8 @@
     userEmail = "dev@huequica.xyz";
 
     extraConfig = {
+      core.editor = "vim";
+
       gpg = {
         format = "ssh";
       };

@@ -1,4 +1,4 @@
-{ pkgs, nix-ld, ... }:
+{ pkgs, ... }:
 {
   home = {
     packages = with pkgs; [ volta ];

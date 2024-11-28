@@ -8,6 +8,7 @@
   networking = {
     hostName = hostname;
     networkmanager.enable = true;
+    firewall.enable = false;
   };
 
   services.expressvpn.enable = true;

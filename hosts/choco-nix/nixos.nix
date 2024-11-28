@@ -1,19 +1,25 @@
 {
+  inputs,
   config,
   pkgs,
   username,
   ...
 }:
-
 {
-  imports = [
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
+  imports =
+    [
+      # Include the results of the hardware scan.
+      ./hardware-configuration.nix
 
-    ../../modules/core
-    ../../modules/vm
-    ../../modules/desktop
-  ];
+      ../../modules/core
+      ../../modules/vm
+      ../../modules/desktop
+    ]
+    ++ (with inputs.nixos-hardware.nixosModules; [
+      common-cpu-intel
+      common-gpu-intel
+      common-pc-ssd
+    ]);
 
   # Bootloader.
   boot.loader.grub.enable = true;

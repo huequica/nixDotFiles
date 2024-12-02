@@ -6,7 +6,7 @@
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
       noto-fonts-emoji
-      nerdfonts
+      nerd-fonts.jetbrains-mono
     ];
 
     fontDir.enable = true;

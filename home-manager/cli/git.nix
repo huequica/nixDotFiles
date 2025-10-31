@@ -7,8 +7,10 @@
 {
   programs.git = {
     enable = true;
-    userName = "huequica";
-    userEmail = "dev@huequica.xyz";
+    settings = {
+      userName = "huequica";
+      userEmail = "dev@huequica.xyz";
+    };
 
     extraConfig = {
       core.editor = "vim";

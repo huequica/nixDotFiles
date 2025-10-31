@@ -5,10 +5,9 @@ in
 {
   programs.ssh = {
     enable = true;
-    extraConfig = ''
-      Host *
-          IdentityAgent ${onePassPath}
-    '';
+    matchBlocks."*" = {
+      identityAgent = onePassPath;
+    };
   };
 
   # to fix cannot execute `git push` via jetbrains IDE problem

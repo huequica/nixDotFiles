@@ -5,5 +5,6 @@
     ./tools.nix
     ./nextcloud.nix
     ./messaging
+    ./terminal.nix
   ];
 }

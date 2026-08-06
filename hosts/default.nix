@@ -69,6 +69,12 @@ in
       username = "huequica";
       modules = [ ./justMonika/nixos.nix ];
     };
+    huequica-m = makeNixosSystem {
+      system = "x86_64-linux";
+      hostname = "huequica-m";
+      username = "huequica";
+      modules = [ ./huequica-m/nixos.nix ];
+    };
   };
 
   home-manager = {
@@ -91,6 +97,13 @@ in
       username = "huequica";
       overlays = [ inputs.fenix.overlays.default ];
       modules = [ ./justMonika/home-manager.nix ];
+    };
+
+    "huequica@huequica-m" = makeHomeManagerConfiguration {
+      system = "x86_64-linux";
+      username = "huequica";
+      overlays = [ inputs.fenix.overlays.default ];
+      modules = [ ./huequica-m/home-manager.nix ];
     };
   };
 }

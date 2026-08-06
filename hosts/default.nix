@@ -81,28 +81,40 @@ in
     "huequica@choco-nix" = makeHomeManagerConfiguration {
       system = "x86_64-linux";
       username = "huequica";
-      overlays = [ inputs.fenix.overlays.default ];
+      overlays = [
+        inputs.fenix.overlays.default
+        inputs.nix-claude-code.overlays.default
+      ];
       modules = [ ./choco-nix/home-manager.nix ];
     };
 
     "huequica@justYuri" = makeHomeManagerConfiguration {
       system = "x86_64-linux";
       username = "huequica";
-      overlays = [ inputs.fenix.overlays.default ];
+      overlays = [
+        inputs.fenix.overlays.default
+        inputs.nix-claude-code.overlays.default
+      ];
       modules = [ ./justYuri/home-manager.nix ];
     };
 
     "huequica@justMonika" = makeHomeManagerConfiguration {
       system = "x86_64-linux";
       username = "huequica";
-      overlays = [ inputs.fenix.overlays.default ];
+      overlays = [
+        inputs.fenix.overlays.default
+        inputs.nix-claude-code.overlays.default
+      ];
       modules = [ ./justMonika/home-manager.nix ];
     };
 
     "huequica@huequica-m" = makeHomeManagerConfiguration {
       system = "x86_64-linux";
       username = "huequica";
-      overlays = [ inputs.fenix.overlays.default ];
+      overlays = [
+        inputs.fenix.overlays.default
+        inputs.nix-claude-code.overlays.default
+      ];
       modules = [ ./huequica-m/home-manager.nix ];
     };
   };

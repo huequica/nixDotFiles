@@ -1,14 +1,20 @@
-{ config, pkgs, username, ... }:
+{
+  config,
+  pkgs,
+  username,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
 
-      ../../modules/core
-      ../../modules/desktop
-      ../../modules/bluetooth
-    ];
+    ../../modules/core
+    ../../modules/desktop
+    ../../modules/bluetooth
+    ../../modules/fingerprint
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -19,9 +25,13 @@
     # NOTE: claude use bash, so keep bash as default shell.
     # shell = pkgs.fish;
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+    ];
   };
-  
+
   services.xserver.xkb = {
     layout = "us";
     variant = "";

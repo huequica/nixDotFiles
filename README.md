@@ -55,13 +55,13 @@ home 以下のやつでいろいろするやつ
 初期セットアップの場合は以下の手順を踏む
 
 1. Nix をインストールする
-  - https://github.com/NixOS/nix-installer に従う
-  - インストール時に Flake を有効化できるので必ず有効化
+    - https://github.com/NixOS/nix-installer に従う
+    - インストール時に Flake を有効化できるので必ず有効化
 2. huequica/nixDotFiles を下ろしてくる
 3. `sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .`
 4. 以降は OS の設定, homebrew の設定の適用の際は `brew update && darwin-rebuild switch --flake .`
 5. home-manager の設定に変更を入れた際は `nix develop && nh home switch .`
-  - direnv を有効化していれば `nix develop` は省略可能
+    - direnv を有効化していれば `nix develop` は省略可能
 
 ## MEMO
 

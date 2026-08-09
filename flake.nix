@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -19,16 +18,25 @@
     };
 
     nix-claude-code.url = "github:ryoppippi/nix-claude-code";
+
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
     inputs:
     let
-      allSystems = [ "x86_64-linux" ];
+      allSystems = [
+        "x86_64-linux"
+        "aarch64-darwin"
+      ];
       forAllSystems = inputs.nixpkgs.lib.genAttrs allSystems;
     in
     {
       nixosConfigurations = (import ./hosts inputs).nixos;
+      darwinConfigurations = (import ./hosts inputs).darwin;
       homeConfigurations = (import ./hosts inputs).home-manager;
 
       devShells = forAllSystems (

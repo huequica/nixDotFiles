@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  pkgs-stable,
   ...
 }:
 {
@@ -27,7 +26,7 @@
 
   programs.gh = {
     enable = true;
-    package = pkgs-stable.gh;
+    package = pkgs.gh;
     settings = {
       editor = "vim";
       git_protocol = "ssh";

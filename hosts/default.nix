@@ -24,7 +24,10 @@ let
       specialArgs = {
         inherit inputs hostname username;
       };
-      modules = modules;
+      modules = [
+        inputs.nix-homebrew.darwinModules.nix-homebrew
+      ]
+      ++ modules;
     };
 
   makeHomeManagerConfiguration =

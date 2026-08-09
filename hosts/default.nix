@@ -14,6 +14,19 @@ let
       };
     };
 
+  makeDarwinSystem =
+    {
+      hostname,
+      username,
+      modules,
+    }:
+    inputs.nix-darwin.lib.darwinSystem {
+      specialArgs = {
+        inherit inputs hostname username;
+      };
+      modules = modules;
+    };
+
   makeHomeManagerConfiguration =
     {
       system,
@@ -21,6 +34,10 @@ let
       overlays,
       modules,
     }:
+    let
+      homeDirectory =
+        if inputs.nixpkgs.lib.hasSuffix "darwin" system then "/Users/${username}" else "/home/${username}";
+    in
     inputs.home-manager.lib.homeManagerConfiguration {
       pkgs = import inputs.nixpkgs {
         inherit system overlays;
@@ -38,8 +55,7 @@ let
       modules = modules ++ [
         {
           home = {
-            inherit username;
-            homeDirectory = "/home/${username}";
+            inherit username homeDirectory;
             stateVersion = "22.11";
           };
           programs.home-manager.enable = true;
@@ -74,6 +90,14 @@ in
       hostname = "huequica-m";
       username = "huequica";
       modules = [ ./huequica-m/nixos.nix ];
+    };
+  };
+
+  darwin = {
+    huequica-m-darwin = makeDarwinSystem {
+      hostname = "huequica-m-darwin";
+      username = "huequica";
+      modules = [ ./huequica-m-darwin/darwin.nix ];
     };
   };
 
@@ -116,6 +140,16 @@ in
         inputs.nix-claude-code.overlays.default
       ];
       modules = [ ./huequica-m/home-manager.nix ];
+    };
+
+    "huequica@huequica-m-darwin" = makeHomeManagerConfiguration {
+      system = "aarch64-darwin";
+      username = "huequica";
+      overlays = [
+        inputs.fenix.overlays.default
+        inputs.nix-claude-code.overlays.default
+      ];
+      modules = [ ./huequica-m-darwin/home-manager.nix ];
     };
   };
 }

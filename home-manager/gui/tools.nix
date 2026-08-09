@@ -1,8 +1,11 @@
 { pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    remmina
-    vscode
-    jetbrains-toolbox
-  ];
+  # remmina は darwin 未対応のため mac では導入しない
+  home.packages =
+    with pkgs;
+    [
+      vscode
+      jetbrains-toolbox
+    ]
+    ++ pkgs.lib.optionals pkgs.stdenv.isLinux [ remmina ];
 }

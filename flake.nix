@@ -19,16 +19,25 @@
     };
 
     nix-claude-code.url = "github:ryoppippi/nix-claude-code";
+
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
     inputs:
     let
-      allSystems = [ "x86_64-linux" ];
+      allSystems = [
+        "x86_64-linux"
+        "aarch64-darwin"
+      ];
       forAllSystems = inputs.nixpkgs.lib.genAttrs allSystems;
     in
     {
       nixosConfigurations = (import ./hosts inputs).nixos;
+      darwinConfigurations = (import ./hosts inputs).darwin;
       homeConfigurations = (import ./hosts inputs).home-manager;
 
       devShells = forAllSystems (

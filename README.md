@@ -48,3 +48,22 @@ home 以下のやつでいろいろするやつ
 11. `nh os switch .`
 12. `nh home switch .`
 13. `reboot`
+
+# darwin(macOS) 環境
+
+[#32](https://github.com/huequica/nixDotFiles/pull/32) から darwin 環境もサポートしはじめた
+初期セットアップの場合は以下の手順を踏む
+
+1. Nix をインストールする
+  - https://github.com/NixOS/nix-installer に従う
+  - インストール時に Flake を有効化できるので必ず有効化
+2. huequica/nixDotFiles を下ろしてくる
+3. `sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .`
+4. 以降は OS の設定, homebrew の設定の適用の際は `brew update && darwin-rebuild switch --flake .`
+5. home-manager の設定に変更を入れた際は `nix develop && nh home switch .`
+  - direnv を有効化していれば `nix develop` は省略可能
+
+## MEMO
+
+- nixpkgs 経由で入れた GUI アプリケーションは Spotlight から見つけられない
+  - Raycast を入れてある そいつは発見可能

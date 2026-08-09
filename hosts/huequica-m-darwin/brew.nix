@@ -13,6 +13,9 @@
 
   homebrew = {
     enable = true;
+    # TODO: migrate 完了したタイミングでコメントアウトを外す()
+    # onActivation.cleanup = "uninstall";
+
     brews = [
       "xcodegen"
       "cliclick"

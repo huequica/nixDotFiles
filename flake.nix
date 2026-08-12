@@ -10,6 +10,7 @@
     };
 
     nixos-hardware.url = "github:NixOS/nixos-hardware";
+    nixd.url = "github:nix-community/nixd";
 
     # rust toolchains
     fenix = {

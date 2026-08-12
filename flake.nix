@@ -46,7 +46,7 @@
         let
           pkgs = inputs.nixpkgs.legacyPackages.${system};
           formatters = with pkgs; [
-            nixfmt-rfc-style
+            nixfmt
           ];
           scripts = [
             (pkgs.writeScriptBin "update-input" ''
@@ -64,7 +64,7 @@
         let
           pkgs = inputs.nixpkgs.legacyPackages.${system};
           formatters = with pkgs; [
-            nixfmt-rfc-style
+            nixfmt
           ];
           format = pkgs.writeScriptBin "format" ''
             PATH=$PATH:${pkgs.lib.makeBinPath formatters}

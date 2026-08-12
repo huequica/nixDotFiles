@@ -4,7 +4,9 @@
     ./media.nix
     ./tools.nix
     ./nextcloud.nix
-    ./messaging
     ./terminal.nix
+
+    ./messaging
+    ./zed
   ];
 }

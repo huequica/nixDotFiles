@@ -88,7 +88,10 @@ in
       system = "x86_64-linux";
       hostname = "huequica-m";
       username = "huequica";
-      modules = [ ./huequica-m/nixos.nix ];
+      modules = [
+        inputs.disko.nixosModules.disko
+        ./huequica-m/nixos.nix
+      ];
     };
   };
 

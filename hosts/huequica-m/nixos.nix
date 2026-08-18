@@ -1,12 +1,12 @@
 {
-  config,
-  pkgs,
   username,
   ...
 }:
 
 {
   imports = [
+    ./disko.nix
+
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
@@ -38,5 +38,5 @@
   };
 
   # DONT TOUCH THIS
-  system.stateVersion = "26.05"; # Did you read the comment?
+  system.stateVersion = "26.05";
 }

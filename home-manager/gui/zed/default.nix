@@ -6,6 +6,7 @@
       "toml"
       "swift"
       "Biome"
+      "Dark Purple"
       "Material Icon Theme"
     ];
 

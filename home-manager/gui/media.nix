@@ -6,5 +6,5 @@
     [
       pear-desktop
     ]
-    ++ pkgs.lib.optionals pkgs.stdenv.isLinux [ vlc ];
+    ++ pkgs.lib.optionals pkgs.stdenv.hostPlatform.isLinux [ vlc ];
 }

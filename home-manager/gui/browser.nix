@@ -14,7 +14,7 @@ in
 
   # plasma6 では現状 vivaldi が正しく起動しない問題がある
   # vivaldi は darwin 未対応のため mac では homebrew cask を利用する (hosts/huequica-m-darwin/darwin.nix)
-  home.packages = pkgs.lib.optionals pkgs.stdenv.isLinux [
+  home.packages = pkgs.lib.optionals pkgs.stdenv.hostPlatform.isLinux [
     customVivaldi
   ];
 }

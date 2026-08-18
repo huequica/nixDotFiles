@@ -12,5 +12,5 @@
       vesktop
     ]
     # for macOS, use homebrew cask
-    ++ pkgs.lib.optionals pkgs.stdenv.isLinux [ discord ];
+    ++ pkgs.lib.optionals pkgs.stdenv.hostPlatform.isLinux [ discord ];
 }

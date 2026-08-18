@@ -7,5 +7,5 @@
       vscode
       jetbrains-toolbox
     ]
-    ++ pkgs.lib.optionals pkgs.stdenv.isLinux [ remmina ];
+    ++ pkgs.lib.optionals pkgs.stdenv.hostPlatform.isLinux [ remmina ];
 }

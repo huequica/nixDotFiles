@@ -5,9 +5,9 @@
       "nix"
       "toml"
       "swift"
-      "Biome"
-      "Dark Purple"
-      "Material Icon Theme"
+      "biome"
+      "dark-purple-theme"
+      "material-icon-theme"
     ];
 
     userSettings = {

@@ -2,6 +2,6 @@
   imports = [
     ./rust.nix
     ./node.nix
-    ./nixd.nix
+    ./nix.nix
   ];
 }

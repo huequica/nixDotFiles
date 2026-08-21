@@ -6,6 +6,7 @@
 {
   imports = [
     ./brew.nix
+    ./systemConfigs
   ];
 
   nixpkgs.hostPlatform = "aarch64-darwin";

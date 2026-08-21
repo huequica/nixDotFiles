@@ -28,6 +28,7 @@
       "discord"
       "raycast"
       "1password"
+      "azookey"
     ];
   };
 }

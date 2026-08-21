@@ -1,13 +1,4 @@
 # Disk layout for the LUKS2-encrypted reinstall of huequica-m.
-#
-# NOTE: this file is intentionally NOT imported by ./nixos.nix yet. Importing
-# it would make `disko.nixosModules.disko` derive `fileSystems` /
-# `boot.initrd.luks.devices` from `disko.devices` below, which points at a
-# LUKS mapper device that doesn't exist on the currently-running (unencrypted)
-# disk. Wire this in (add `inputs.disko.nixosModules.disko` + `./disko.nix` to
-# huequica-m's modules in ../default.nix) only from the NixOS installer
-# environment, as part of the actual reinstall.
-#
 # Usage from the installer:
 #   nix run github:nix-community/disko -- --mode disko ./disko.nix
 # (omit `settings.keyFile`/`passwordFile` below to be prompted for the LUKS

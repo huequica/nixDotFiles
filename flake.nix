@@ -47,24 +47,6 @@
       darwinConfigurations = (import ./hosts inputs).darwin;
       homeConfigurations = (import ./hosts inputs).home-manager;
 
-      devShells = forAllSystems (
-        system:
-        let
-          pkgs = inputs.nixpkgs.legacyPackages.${system};
-          formatters = with pkgs; [
-            nixfmt
-          ];
-          scripts = [
-            (pkgs.writeScriptBin "update-input" ''
-              nix flake lock --override-input "$1" "$2"
-            '')
-          ];
-        in
-        {
-          default = pkgs.mkShell { packages = ([ pkgs.nh ]) ++ formatters ++ scripts; };
-        }
-      );
-
       formatter = forAllSystems (
         system:
         let

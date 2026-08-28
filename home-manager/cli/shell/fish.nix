@@ -1,6 +1,5 @@
 let
   functionsDirectory = ".config/fish/functions";
-  completionsDirectory = ".config/fish/completions";
 in
 {
   programs.fish = {
@@ -8,7 +7,6 @@ in
     shellAliases = {
       "d-c" = "docker compose";
       gdel = "git branch -D";
-      nd = "nix develop";
     };
 
     loginShellInit = ''
@@ -22,11 +20,6 @@ in
     gsd = {
       source = ./fishs/gsd.fish;
       target = "${functionsDirectory}/gsd.fish";
-    };
-
-    nh = {
-      source = ./fishs/nh.fish;
-      target = "${completionsDirectory}/nh.fish";
     };
   };
 }

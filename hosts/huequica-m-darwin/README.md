@@ -20,7 +20,7 @@ none
 5. `sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#huequica-m-darwin`
 
 `darwin-version` を叩いて表示されれば問題なし  
-以降の brew などのアップデートは `brew update && sudo darwin-rebuild switch --flake .` を使う
+以降の brew などのアップデートは `brew update && nh darwin switch .` を使う
 
 ### 2. Home
 

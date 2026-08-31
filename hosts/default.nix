@@ -49,6 +49,7 @@ let
 
       extraSpecialArgs = {
         inherit inputs username;
+        inherit (inputs) wdc;
       };
 
       modules = modules ++ [

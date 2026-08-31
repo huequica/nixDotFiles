@@ -5,6 +5,7 @@
     ./ssh.nix
     ./nixfmt.nix
     ./claude.nix
+    ./wdc.nix
     ./shell
     ./vim
     ./developEnvironments

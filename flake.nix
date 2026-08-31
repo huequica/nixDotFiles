@@ -31,6 +31,8 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    wdc.url = "github:huequica/webp_downconverter";
   };
 
   outputs =

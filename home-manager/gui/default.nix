@@ -1,5 +1,6 @@
 {
   imports = [
+    ./audio.nix
     ./browser.nix
     ./media.nix
     ./tools.nix

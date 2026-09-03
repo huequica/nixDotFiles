@@ -1,6 +1,7 @@
+{ pkgs, ... }:
 {
   programs.zed-editor = {
-    enable = true;
+    enable = pkgs.stdenv.hostPlatform.isLinux;
     extensions = [
       "nix"
       "toml"

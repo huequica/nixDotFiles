@@ -1,8 +1,4 @@
-{
-  username,
-  nix-homebrew,
-  ...
-}:
+{ username, ... }:
 {
   nix-homebrew = {
     enable = true;
@@ -13,8 +9,7 @@
 
   homebrew = {
     enable = true;
-    # TODO: migrate 完了したタイミングでコメントアウトを外す()
-    # onActivation.cleanup = "uninstall";
+    onActivation.cleanup = "uninstall";
 
     brews = [
       "xcodegen"
@@ -29,6 +24,7 @@
       "raycast"
       "1password"
       "azookey"
+      "zed"
     ];
   };
 }

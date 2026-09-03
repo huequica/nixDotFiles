@@ -25,6 +25,7 @@
       "1password"
       "azookey"
       "zed"
+      "microsoft-teams"
     ];
   };
 }

@@ -1,0 +1,3 @@
+{
+  programs.mousehop.enable = true;
+}

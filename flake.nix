@@ -33,6 +33,7 @@
     };
 
     wdc.url = "github:huequica/webp_downconverter";
+    mousehop.url = "github:jondkinney/mousehop";
   };
 
   outputs =

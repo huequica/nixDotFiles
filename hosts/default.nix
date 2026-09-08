@@ -106,7 +106,10 @@ in
         inputs.fenix.overlays.default
         inputs.nix-claude-code.overlays.default
       ];
-      modules = [ ./choco-nix/home-manager.nix ];
+      modules = [
+        ./choco-nix/home-manager.nix
+        inputs.mousehop.homeManagerModules.default
+      ];
     };
 
     "huequica@justYuri" = makeHomeManagerConfiguration {
@@ -116,7 +119,10 @@ in
         inputs.fenix.overlays.default
         inputs.nix-claude-code.overlays.default
       ];
-      modules = [ ./justYuri/home-manager.nix ];
+      modules = [
+        ./justYuri/home-manager.nix
+        inputs.mousehop.homeManagerModules.default
+      ];
     };
 
     "huequica@huequica-m" = makeHomeManagerConfiguration {
@@ -126,7 +132,10 @@ in
         inputs.fenix.overlays.default
         inputs.nix-claude-code.overlays.default
       ];
-      modules = [ ./huequica-m/home-manager.nix ];
+      modules = [
+        ./huequica-m/home-manager.nix
+        inputs.mousehop.homeManagerModules.default
+      ];
     };
 
     "huequica@huequica-m-darwin" = makeHomeManagerConfiguration {
@@ -136,7 +145,10 @@ in
         inputs.fenix.overlays.default
         inputs.nix-claude-code.overlays.default
       ];
-      modules = [ ./huequica-m-darwin/home-manager.nix ];
+      modules = [
+        ./huequica-m-darwin/home-manager.nix
+        inputs.mousehop.homeManagerModules.default
+      ];
     };
   };
 }

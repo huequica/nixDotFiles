@@ -20,7 +20,7 @@
       icon_theme = {
         mode = "system";
         light = "Material Icon Theme";
-        dark = "Zed (Default)";
+        dark = "Material Icon Theme";
       };
 
       show_whitespaces = "all";

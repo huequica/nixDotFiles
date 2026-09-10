@@ -8,10 +8,14 @@ let
       modules,
     }:
     inputs.nixpkgs.lib.nixosSystem {
-      inherit system modules;
+      inherit system;
       specialArgs = {
         inherit inputs hostname username;
       };
+      modules = [
+        ./cachix.nix
+      ]
+      ++ modules;
     };
 
   makeDarwinSystem =
@@ -26,6 +30,7 @@ let
       };
       modules = [
         inputs.nix-homebrew.darwinModules.nix-homebrew
+        ./cachix.nix
       ]
       ++ modules;
     };

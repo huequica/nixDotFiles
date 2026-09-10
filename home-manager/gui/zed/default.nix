@@ -12,6 +12,7 @@
     ];
 
     userSettings = {
+      colorize_brackets = true;
       theme = {
         mode = "dark";
         light = "One Light";

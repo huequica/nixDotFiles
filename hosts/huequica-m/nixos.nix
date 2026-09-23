@@ -29,12 +29,15 @@
     pkgs.usbutils # provides lsusb
   ];
 
-  # Let the "input" group read/write the INZONE Buds receiver's hidraw
-  # device without root, so buds-watcher can poll it directly.
+  # Let the "input" group read/write the INZONE Buds receiver without
+  # root, so buds-watcher can poll it directly.
   # (logind's uaccess ACL didn't take effect on this system, so use a
   # plain group instead.)
+  # buds-watcher now uses the `hidapi` PyPI package, whose Linux backend
+  # goes through libusb (not the hidraw kernel driver), so it needs
+  # access to the raw /dev/bus/usb/* node, not /dev/hidraw*.
   services.udev.extraRules = ''
-    SUBSYSTEM=="hidraw", ATTRS{idVendor}=="054c", ATTRS{idProduct}=="0ec2", MODE="0660", GROUP="input"
+    SUBSYSTEM=="usb", ATTRS{idVendor}=="054c", ATTRS{idProduct}=="0ec2", MODE="0660", GROUP="input"
   '';
 
   programs.fish.enable = true;

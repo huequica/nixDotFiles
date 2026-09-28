@@ -15,4 +15,42 @@
       }
     ]
   '';
+
+  # 内蔵 HDA の HDMI / DisplayPort 出力は番号でしか区別できないため、接続先モニター名を付ける。
+  # 対応は ELD (amixer -c0 cget iface=PCM,name=ELD,device=N) で確認したもので、
+  # 物理的な接続ポートを変えるとずれる。
+  xdg.configFile."wireplumber/wireplumber.conf.d/52-hdmi-monitor-names.conf".text = ''
+    monitor.alsa.rules = [
+      {
+        matches = [
+          { node.name = "alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__HDMI1__sink" }
+        ]
+        actions = {
+          update-props = {
+            node.description = "VG280K"
+          }
+        }
+      }
+      {
+        matches = [
+          { node.name = "alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__HDMI2__sink" }
+        ]
+        actions = {
+          update-props = {
+            node.description = "LG HDR 4K"
+          }
+        }
+      }
+      {
+        matches = [
+          { node.name = "alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__HDMI3__sink" }
+        ]
+        actions = {
+          update-props = {
+            node.description = "P27FBB-RGGL"
+          }
+        }
+      }
+    ]
+  '';
 }

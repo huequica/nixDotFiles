@@ -7,6 +7,7 @@
     ./tools.nix
     ./nextcloud.nix
     ./terminal.nix
+    ./buds-watcher.nix
 
     ./messaging
     ./zed

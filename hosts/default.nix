@@ -54,7 +54,7 @@ let
 
       extraSpecialArgs = {
         inherit inputs username;
-        inherit (inputs) wdc;
+        inherit (inputs) wdc buds-watcher;
       };
 
       modules = modules ++ [

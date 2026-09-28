@@ -33,6 +33,7 @@
     };
 
     wdc.url = "github:huequica/webp_downconverter";
+    buds-watcher.url = "github:huequica/buds-watcher";
     mousehop.url = "github:jondkinney/mousehop";
   };
 

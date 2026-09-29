@@ -1,6 +1,5 @@
 {
   imports = [
-    ./audio.nix
     ./browser.nix
     ./media.nix
     ./mousehop.nix
@@ -9,6 +8,7 @@
     ./terminal.nix
     ./buds-watcher.nix
 
+    ./audio
     ./messaging
     ./zed
   ];

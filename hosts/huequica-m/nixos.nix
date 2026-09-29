@@ -38,6 +38,26 @@
   # access to the raw /dev/bus/usb/* node, not /dev/hidraw*.
   services.udev.extraRules = ''
     SUBSYSTEM=="usb", ATTRS{idVendor}=="054c", ATTRS{idProduct}=="0ec2", MODE="0660", GROUP="input"
+
+    # HDMI/DisplayPort の抜き差しで ALSA が発行する "change" イベントを捕まえて、
+    # home-manager 側の hdmi-monitor-names.service (モニター名を ELD から
+    # 読み直して wireplumber に反映する) を即座に起動する。
+    ACTION=="change", SUBSYSTEM=="sound", KERNEL=="card0", TAG+="systemd", ENV{SYSTEMD_WANTS}+="hdmi-monitor-names-trigger.service"
+  '';
+
+  # udev はシステムの systemd からしかユニットを起動できないため、ユーザー
+  # セッションの hdmi-monitor-names.service を起動するための橋渡し役。
+  # スリープからの復帰時(モニター構成が変わりうる)にも同じ経路で呼ぶ。
+  systemd.services.hdmi-monitor-names-trigger = {
+    description = "Ask the user session to refresh HDMI monitor names in WirePlumber";
+    serviceConfig.Type = "oneshot";
+    script = ''
+      ${pkgs.systemd}/bin/systemctl --user --machine="${username}@" --no-block restart hdmi-monitor-names.service || true
+    '';
+  };
+
+  powerManagement.resumeCommands = ''
+    ${pkgs.systemd}/bin/systemctl start hdmi-monitor-names-trigger.service
   '';
 
   programs.fish.enable = true;

@@ -7,6 +7,7 @@
     ./nextcloud.nix
     ./terminal.nix
     ./buds-watcher.nix
+    ./obs-studio.nix
 
     ./audio
     ./messaging

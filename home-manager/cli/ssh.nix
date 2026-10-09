@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  lib,
+  isWSL,
+  ...
+}:
 let
   # パスに空白を含むため ssh の config 上ではクォートが必要
   onePasswordAgentPath =
@@ -12,9 +17,13 @@ in
     enable = true;
     enableDefaultConfig = false;
     settings."*" = {
-      IdentityAgent = onePasswordAgentPath;
+      # WSL 上には 1Password の agent.sock が存在しないので指定しない
+      IdentityAgent = if isWSL then null else onePasswordAgentPath;
     };
   };
+
+  # WSL では Windows 側の 1Password の agent を使うため ssh.exe に任せる
+  programs.git.settings.core.sshCommand = lib.mkIf isWSL "ssh.exe";
 
   # to fix cannot execute `git push` via jetbrains IDE problem
   # https://github.com/nix-community/home-manager/issues/322#issuecomment-1856128020

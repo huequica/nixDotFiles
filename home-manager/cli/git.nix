@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  isWSL,
   ...
 }:
 {
@@ -18,7 +19,11 @@
       gpg.format = "ssh";
 
       "gpg \"ssh\"" = {
-        program = "${lib.getExe' pkgs._1password-gui "op-ssh-sign"}";
+        program =
+          if isWSL then
+            "/mnt/c/Users/huequica/AppData/Local/Microsoft/WindowsApps/op-ssh-sign.exe"
+          else
+            "${lib.getExe' pkgs._1password-gui "op-ssh-sign"}";
       };
       commit.gpgsign = true;
     };

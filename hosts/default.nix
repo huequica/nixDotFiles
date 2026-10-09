@@ -41,6 +41,7 @@ let
       username,
       overlays,
       modules,
+      isWSL ? false,
     }:
     let
       homeDirectory =
@@ -53,7 +54,7 @@ let
       };
 
       extraSpecialArgs = {
-        inherit inputs username;
+        inherit inputs username isWSL;
         inherit (inputs) wdc buds-watcher;
       };
 
@@ -83,7 +84,15 @@ in
       username = "huequica";
       modules = [ ./justYuri/nixos.nix ];
     };
-
+    justMonika-wsl = makeNixosSystem {
+      system = "x86_64-linux";
+      hostname = "justMonika-wsl";
+      username = "huequica";
+      modules = [
+        inputs.nixos-wsl.nixosModules.default
+        ./justMonika-wsl/nixos.nix
+      ];
+    };
     huequica-m = makeNixosSystem {
       system = "x86_64-linux";
       hostname = "huequica-m";
@@ -127,6 +136,19 @@ in
       modules = [
         ./justYuri/home-manager.nix
         inputs.mousehop.homeManagerModules.default
+      ];
+    };
+
+    "huequica@justMonika-wsl" = makeHomeManagerConfiguration {
+      system = "x86_64-linux";
+      username = "huequica";
+      isWSL = true;
+      overlays = [
+        inputs.fenix.overlays.default
+        inputs.nix-claude-code.overlays.default
+      ];
+      modules = [
+        ./justMonika-wsl/home-manager.nix
       ];
     };
 

@@ -21,6 +21,10 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Panther Lake (X13 Gen 7) の HDMI/DP 音声が LTS カーネルでは鳴らないため、
+  # 最新カーネルを使う。
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   # usbmon: for capturing USB traffic (e.g. reverse-engineering the INZONE
   # Buds USB receiver protocol) via `sudo modprobe usbmon` + tshark.
   boot.kernelModules = [ "usbmon" ];
@@ -42,7 +46,7 @@
     # HDMI/DisplayPort の抜き差しで ALSA が発行する "change" イベントを捕まえて、
     # home-manager 側の hdmi-monitor-names.service (モニター名を ELD から
     # 読み直して wireplumber に反映する) を即座に起動する。
-    ACTION=="change", SUBSYSTEM=="sound", KERNEL=="card0", TAG+="systemd", ENV{SYSTEMD_WANTS}+="hdmi-monitor-names-trigger.service"
+    ACTION=="change", SUBSYSTEM=="sound", KERNEL=="card*", TAG+="systemd", ENV{SYSTEMD_WANTS}+="hdmi-monitor-names-trigger.service"
   '';
 
   # udev はシステムの systemd からしかユニットを起動できないため、ユーザー

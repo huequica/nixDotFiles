@@ -11,4 +11,6 @@
     ./claude
     ./developEnvironments
   ];
+
+  home.sessionPath = [ "$HOME/.local/bin" ];
 }

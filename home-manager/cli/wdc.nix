@@ -1,4 +1,4 @@
 { wdc, pkgs, ... }:
 {
-  home.packages = [ wdc.packages.${pkgs.system}.default ];
+  home.packages = [ wdc.packages.${pkgs.stdenv.hostPlatform.system}.default ];
 }

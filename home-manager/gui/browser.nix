@@ -8,7 +8,11 @@ let
 in
 {
   programs = {
-    firefox.enable = true;
+    firefox = {
+      enable = true;
+      # 既定値が stateVersion 依存で警告が出るため明示する
+      configPath = pkgs.lib.mkIf pkgs.stdenv.hostPlatform.isLinux ".mozilla/firefox";
+    };
     google-chrome.enable = true;
   };
 

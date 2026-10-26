@@ -11,7 +11,7 @@
       user = {
         name = "huequica";
         email = "dev@huequica.xyz";
-        signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAzrPOJ5QeoNTLuBc6q6QaX2aZDU7KoHk+vUFhDXMEaT";
+        signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF94kAj0VX+nU9O01JQri5aZ1XMGb5QmehH57xUSHhsY";
       };
 
       core.editor = "vim";

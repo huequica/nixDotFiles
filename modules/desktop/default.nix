@@ -6,5 +6,6 @@
     ./fonts.nix
     ./vault.nix
     ./vm-viewer.nix
+    ./steam.nix
   ];
 }

@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   programs.obs-studio = {
-    enable = true;
+    enable = pkgs.stdenv.hostPlatform.isLinux;
     plugins = with pkgs.obs-studio-plugins; [
       wlrobs
       obs-backgroundremoval

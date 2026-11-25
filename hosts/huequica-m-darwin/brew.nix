@@ -26,6 +26,7 @@
       "azookey"
       "zed"
       "microsoft-teams"
+      "obs"
     ];
   };
 }

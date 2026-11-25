@@ -22,6 +22,9 @@
         program =
           if isWSL then
             "/mnt/c/Users/huequica/AppData/Local/Microsoft/WindowsApps/op-ssh-sign.exe"
+          # darwin では 1Password を homebrew cask で導入しているためアプリ同梱のものを使う
+          else if pkgs.stdenv.hostPlatform.isDarwin then
+            "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
           else
             "${lib.getExe' pkgs._1password-gui "op-ssh-sign"}";
       };
